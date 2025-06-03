@@ -14,6 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+
 public class Category {
 
     @Id

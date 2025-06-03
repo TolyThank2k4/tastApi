@@ -56,4 +56,16 @@ public class CategoryController {
         }
         return new ResponseEntity<>(new DataError("category not found", 404), HttpStatus.NOT_FOUND);
     }
+
+    @PutMapping("/{id}/status")
+    public ResponseEntity<?> updateStatus(@PathVariable int id) {
+        Category category = categoryService.findById(id);
+        if (category != null) {
+            category.setStatus(!category.isStatus());
+            categoryService.save(category);
+            return new ResponseEntity<>(category, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(new DataError("category not found", 404), HttpStatus.NOT_FOUND);
+    }
+
 }
