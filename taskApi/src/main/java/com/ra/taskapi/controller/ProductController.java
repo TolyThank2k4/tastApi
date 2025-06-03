@@ -1,8 +1,7 @@
 package com.ra.taskapi.controller;
 
-import com.ra.taskapi.model.entity.Category;
 import com.ra.taskapi.model.entity.Product;
-import com.ra.taskapi.model.entity.dto.DataError;
+import com.ra.taskapi.model.dto.DataError;
 import com.ra.taskapi.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -58,7 +57,7 @@ public class ProductController {
         return new ResponseEntity<>(new DataError("product not found", 404), HttpStatus.NOT_FOUND);
     }
 
-    @PutMapping("/{id}/status")
+    @PatchMapping("/{id}/status")
     public ResponseEntity<?> updateStatus(@PathVariable int id) {
         Product product = productService.findById(id);
         if (product != null) {
@@ -70,3 +69,4 @@ public class ProductController {
     }
 
 }
+    

@@ -1,4 +1,4 @@
-package com.ra.taskapi.model.entity.dto;
+package com.ra.taskapi.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
